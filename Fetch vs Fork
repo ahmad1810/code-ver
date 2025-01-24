@@ -1,0 +1,211 @@
+**1. Fetch**
+
+**Definition:**
+
+git fetch ist ein Git-Befehl, der Änderungen von einem Remote-Repository in dein lokales Repository herunterlädt, ohne diese direkt in deinen aktuellen Branch zu integrieren. Damit kannst du sehen, welche Änderungen auf dem Remote-Repository vorgenommen wurden, bevor du sie zusammenführst (merge).
+
+**Wann wird fetch verwendet?**
+
+• Um Änderungen von einem Remote-Repository zu überprüfen, ohne sie sofort in deine Arbeit zu integrieren.
+
+• Um sicherzustellen, dass dein lokales Repository auf dem neuesten Stand ist, bevor du weiterarbeitest.
+
+**Beispiel: Fetch in GitHub und VSC**
+  
+**Schritt 1: Repository klonen**
+
+Kopiere ein Repository von GitHub:
+
+```
+git clone https://github.com/username/repository.git
+```
+
+**Schritt 2: Änderungen auf dem Remote-Repository vornehmen**
+
+  
+
+Ein anderer Entwickler oder du selbst hast Änderungen am Remote-Repository vorgenommen (z. B. neue Dateien hinzugefügt).
+
+  
+
+**Schritt 3: git fetch verwenden**
+
+1. Im Terminal deines Projekts:
+
+```
+git fetch
+```
+
+• Dadurch werden alle Änderungen vom Remote-Repository heruntergeladen.
+
+• Es aktualisiert den lokalen **Tracking-Branch** (z. B. origin/main), ohne deinen aktuellen Branch zu verändern.
+
+  
+
+2. Zeige die heruntergeladenen Änderungen an:
+
+```
+git log origin/main
+```
+
+  
+
+  
+
+**Schritt 4: Änderungen integrieren (optional)**
+
+  
+
+Wenn du die Änderungen in deinen Branch übernehmen möchtest, kannst du sie zusammenführen:
+
+```
+git merge origin/main
+```
+
+**Fetch in VSC**
+
+1. **Git-Symbol (linke Leiste)**:
+
+• Öffne dein Projekt in VSC.
+
+• Klicke auf das Git-Symbol (Verzweigungs-Symbol).
+
+• Falls Änderungen verfügbar sind, siehst du eine Meldung: “Pull changes from remote”. Vor dem Pull kannst du auch manuell **Fetch** ausführen, indem du auf die drei Punkte oben klickst und **Fetch** auswählst.
+
+2. **Unterschiede sehen**:
+
+• Du kannst die Unterschiede in der Versionskontrolle von VSC visuell anzeigen.
+
+**2. Fork**
+
+  
+
+**Definition:**
+
+  
+
+Ein **Fork** ist eine Kopie eines Repositories auf GitHub (oder einer ähnlichen Plattform), die du erstellst, um eigene Änderungen daran vorzunehmen, ohne das Original-Repository direkt zu beeinflussen. Ein Fork ermöglicht dir, unabhängig vom Hauptprojekt zu arbeiten, z. B. um eigene Funktionen hinzuzufügen oder Fehler zu beheben.
+
+  
+
+**Wann wird ein Fork verwendet?**
+
+• Wenn du an einem Open-Source-Projekt mitarbeiten möchtest.
+
+• Um dein eigenes Experiment auf Basis eines anderen Projekts zu starten.
+
+• Wenn du keine Schreibrechte für das Original-Repository hast.
+
+  
+
+**Beispiel: Fork in GitHub und VSC**
+
+  
+
+**Schritt 1: Fork erstellen**
+
+1. Gehe auf die GitHub-Seite des Repositories, das du forken möchtest.
+
+2. Klicke auf die Schaltfläche **Fork** (oben rechts).
+
+3. Wähle dein eigenes GitHub-Konto aus, um das Repository zu kopieren.
+
+  
+
+**Schritt 2: Fork klonen**
+
+  
+
+Nachdem der Fork erstellt wurde, klone das Repository auf deinen Computer:
+
+```
+git clone https://github.com/dein-username/geforktes-repo.git
+cd geforktes-repo
+```
+
+**Schritt 3: Änderungen vornehmen**
+
+  
+
+Bearbeite Dateien, füge neue Funktionen hinzu oder behebe Fehler.
+
+  
+
+**Schritt 4: Änderungen synchronisieren**
+
+1. **Upstream hinzufügen**:
+
+Füge das Original-Repository (das Hauptprojekt) als upstream hinzu:
+
+```
+git remote add upstream https://github.com/original-username/original-repo.git
+```
+
+  
+
+2. **Upstream-Änderungen abrufen**:
+
+Lade Änderungen aus dem Original-Repository herunter, um mit dem Hauptprojekt synchron zu bleiben:
+
+```
+git fetch upstream
+```
+
+  
+
+3. **Änderungen zusammenführen**:
+
+Mische die Änderungen aus upstream in deinen Fork:
+
+```
+git merge upstream/main
+```
+
+  
+
+4. **Änderungen in den Fork pushen**:
+
+Schiebe deine Änderungen in dein GitHub-Fork-Repository:
+
+```
+git push origin main
+```
+
+  
+
+  
+
+**Schritt 5: Pull-Request erstellen**
+
+  
+
+Wenn du möchtest, dass deine Änderungen in das Original-Repository integriert werden:
+
+1. Gehe auf die GitHub-Seite deines Forks.
+
+2. Klicke auf **Pull Request**.
+
+3. Beschreibe die Änderungen und reiche den Pull-Request ein.
+
+  
+
+**Fork in VSC**
+
+1. **Repository klonen**:
+
+• Nach dem Fork kannst du das geklonte Repository in VSC öffnen.
+
+• Bearbeite die Dateien direkt in VSC.
+
+2. **Pull-Request erstellen**:
+
+• Nutze die GitHub-Erweiterung von VSC, um Pull-Requests visuell zu erstellen.
+
+**Zusammenfassung der Unterschiede**
+
+|**Fetch**|**Fork**|
+|---|---|
+|Lädt Änderungen von einem Remote-Repo herunter.|Erstellt eine Kopie eines Repositories in deinem GitHub-Konto.|
+|Bezieht sich auf dasselbe Repository.|Arbeitet an einer Kopie eines anderen Projekts.|
+|Wird in lokalen und Remote-Repos verwendet.|Wird hauptsächlich auf GitHub verwendet.|
+|Kein Pull-Request erforderlich.|Pull-Request nötig, um Änderungen ins Original-Repo zu bringen.|
