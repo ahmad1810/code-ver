@@ -1,7 +1,7 @@
 ## about me 
 ### Willkommen auf meiner Github Seite ! </br></br>Hier finden Sie Informationen  über mich und meinen Lebenslauf  </br>
 
-![Alternativtext](Panorama_Tierpark.jpg")
+![Alternativtext](Panorama_Tierpark.jpg)
 
 - Meinen vollständigen Lebenslauf  und weitere Infos finden sie  [hier](https://google.com)
 
